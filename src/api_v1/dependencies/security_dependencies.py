@@ -109,3 +109,7 @@ def get_current_active_auth_user(
     """
     if user.active:
         return user
+    raise HTTPException(
+        status_code=status.HTTP_403_FORBIDDEN,
+        detail="inactive user",
+    )
